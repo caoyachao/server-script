@@ -1,0 +1,10 @@
+# Logs and runtime files
+logs/
+*.log
+*.pid
+
+# OS
+.DS_Store
+
+# Temp
+*.tmp
