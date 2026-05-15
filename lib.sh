@@ -200,7 +200,7 @@ wait_for_service() {
     local max_wait=${3:-30}
     local waited=0
 
-    while ! curl -s --max-time 2 "$url" >/dev/null 2>&1; do
+    while ! curl -s --max-time 5 --connect-timeout 3 "$url" >/dev/null 2>&1; do
         if ((waited >= max_wait)); then
             echo -e "${RED}✗ ${name} 启动超时（${max_wait}秒）${NC}"
             return 1

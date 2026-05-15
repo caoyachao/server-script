@@ -32,7 +32,7 @@ check_service_status() {
 
     # 端口/健康检查
     if [[ -n "$health_url" ]]; then
-        if curl -s --max-time 2 "$health_url" >/dev/null 2>&1; then
+        if curl -s --max-time 5 --connect-timeout 3 "$health_url" >/dev/null 2>&1; then
             health_status="健康"
             port_status="响应"
         else
